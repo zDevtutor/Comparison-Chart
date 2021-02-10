@@ -11,16 +11,21 @@ collapseBtn.forEach((collapse, index) => {
       case 0:
         collapsedSectionOne.classList.toggle("collapse-hide");
 
-        if (e.target.innderHTML.includes("Close")) {
-          e.target.innderHTML = "<i class='las la-angle-down'></i> Close";
+        if (e.target.innerHTML.includes("Close")) {
+          e.target.innerHTML =
+            "<i class='bi bi-caret-down-fill'></i> Show More Features";
+        } else {
+          e.target.innerHTML = "<i class='las la-angle-up'></i> Close";
         }
         break;
       case 1:
         collapsedSectionTwo.classList.toggle("collapse-hide");
 
-        if (e.target.innderHTML.includes("Close")) {
-          e.target.innderHTML =
-            "<i class='las la-angle-down'></i> Show More Features";
+        if (e.target.innerHTML.includes("Close")) {
+          e.target.innerHTML =
+            "<i class='bi bi-caret-down-fill'></i> Show More Features";
+        } else {
+          e.target.innerHTML = "<i class='las la-angle-up'></i> Close";
         }
         break;
       default:
