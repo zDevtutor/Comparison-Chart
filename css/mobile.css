@@ -1,0 +1,207 @@
+/* Colors: #2198FF, #CC008C, #D8D8D8, #E0E4E9, #1D2228, #0E5495, #828A93, #0F69FF */
+
+/* Color Varibles */
+:root {
+  --color-primary: #2198ff;
+  --color-light: #fff;
+  --border-color: #e0e4e9;
+  --text-dark: #1d2228;
+  --icon-primary: #cc008c;
+  --icon-secondary: #828a93;
+  --btn-primary: #188fff;
+  --btn-hover: #0e5495;
+}
+
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Style */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  padding: 4rem 0;
+}
+
+/* Utitities */
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.collapse-hide {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: var(--btn-primary);
+  color: var(--color-light);
+  padding: 1rem 5rem;
+  border: none;
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  cursor: pointer;
+}
+
+.la-check {
+  color: var(--icon-primary);
+}
+
+/* Comparison Charts Style */
+.comparison__chart-heading {
+  display: none;
+}
+
+#comparison__chart-1 {
+  display: none;
+}
+
+table {
+  background-color: var(--color-light);
+  color: var(--text-dark);
+  width: 100%;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-top: 4rem;
+  padding: 1.5rem;
+  box-shadow: 0 0 0.2rem;
+}
+
+table thead tr th {
+  padding: 2rem;
+}
+
+table tbody tr td {
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+
+table tbody tr td:first-child,
+table tbody tr td:last-child {
+  text-align: center;
+}
+
+table tbody tr td > a {
+  color: var(--icon-secondary);
+}
+
+table tbody tr.collapse-row td {
+  padding: 2rem;
+  border-bottom: 0;
+}
+
+table tbody tr.collapse-row td > a {
+  color: #0f69ff !important;
+  text-decoration: none;
+}
+
+/* Media Query .. Display on large screens */
+@media (min-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .collapse-hide {
+    display: contents;
+  }
+
+  table {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  table thead tr th {
+    padding: 0.5rem;
+    height: 13rem;
+    border-bottom: 0.1rem solid var(--border-color);
+  }
+
+  table tbody tr td {
+    border-bottom: 0;
+  }
+
+  table tbody tr td:first-child,
+  table tbody tr td:last-child {
+    text-align: center;
+  }
+
+  table tbody tr.collapse-row {
+    display: none;
+  }
+
+  /* Comprison Charts lg screens */
+  .comparison__chart-heading {
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  #comparison__chart-tables {
+    background-color: var(--color-light);
+    box-shadow: 0 0 0.2rem #000;
+    border-radius: 1rem;
+    display: flex;
+    padding: 1rem;
+  }
+
+  #comparison__chart-1 {
+    display: block;
+    order: 0;
+    flex: 2;
+    border-right: 0.1rem solid var(--border-color);
+  }
+
+  #comparison__chart-1 tbody tr td {
+    text-align: left;
+    width: 100%;
+  }
+
+  #comparison__chart-2 tbody tr td:nth-child(3),
+  #comparison__chart-2 tbody tr td:nth-child(2),
+  #comparison__chart-3 tbody tr td:nth-child(2),
+  #comparison__chart-3 tbody tr td:nth-child(3) {
+    display: none;
+  }
+
+  #comparison__chart-2 {
+    order: 2;
+    flex: 1;
+  }
+
+  #comparison__chart-3 {
+    order: 1;
+    flex: 1;
+    border-right: 0.1rem solid var(--border-color);
+  }
+}
