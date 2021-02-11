@@ -51,20 +51,17 @@ const comparisonChartThreeRow = document.querySelectorAll(
 
 const adjustTablesRowsHeight = () => {
   comparisonChartOneRow.forEach((chOneTr, idx1) => {
-    // 45 equal one line
-    if (chOneTr.clientHeight > 45) {
-      comparisonChartTwoRow.forEach((chTwoTr, idx2) => {
-        if (idx2 === idx1) {
-          chTwoTr.style.height = chOneTr.clientHeight + "px";
-        }
-      });
+    comparisonChartTwoRow.forEach((chTwoTr, idx2) => {
+      if (idx2 === idx1) {
+        chTwoTr.style.height = chOneTr.clientHeight + "px";
+      }
+    });
 
-      comparisonChartThreeRow.forEach((chThreeTr, idx3) => {
-        if (idx3 === idx1) {
-          chThreeTr.style.height = chOneTr.clientHeight + "px";
-        }
-      });
-    }
+    comparisonChartThreeRow.forEach((chThreeTr, idx3) => {
+      if (idx3 === idx1) {
+        chThreeTr.style.height = chOneTr.clientHeight + "px";
+      }
+    });
   });
 };
 
