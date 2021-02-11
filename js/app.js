@@ -13,7 +13,7 @@ collapseBtn.forEach((collapse, index) => {
 
         if (e.target.innerHTML.includes("Close")) {
           e.target.innerHTML =
-            "<i class='bi bi-caret-down-fill'></i> Show More Features";
+            "<i class='las la-angle-down'></i> Show More Features";
         } else {
           e.target.innerHTML = "<i class='las la-angle-up'></i> Close";
         }
@@ -23,7 +23,7 @@ collapseBtn.forEach((collapse, index) => {
 
         if (e.target.innerHTML.includes("Close")) {
           e.target.innerHTML =
-            "<i class='bi bi-caret-down-fill'></i> Show More Features";
+            "<i class='las la-angle-down'></i> Show More Features";
         } else {
           e.target.innerHTML = "<i class='las la-angle-up'></i> Close";
         }
@@ -34,4 +34,61 @@ collapseBtn.forEach((collapse, index) => {
         );
     }
   });
+});
+
+// Checking first table row height
+const comparisonChartOneRow = document.querySelectorAll(
+  "#comparison__chart-1 tbody tr"
+);
+
+const comparisonChartTwoRow = document.querySelectorAll(
+  "#comparison__chart-2 tbody tr"
+);
+
+const comparisonChartThreeRow = document.querySelectorAll(
+  "#comparison__chart-3 tbody tr"
+);
+
+const adjustTablesRowsHeight = () => {
+  comparisonChartOneRow.forEach((chOneTr, idx1) => {
+    // 45 equal one line
+    if (chOneTr.clientHeight > 45) {
+      comparisonChartTwoRow.forEach((chTwoTr, idx2) => {
+        if (idx2 === idx1) {
+          chTwoTr.style.height = chOneTr.clientHeight + "px";
+        }
+      });
+
+      comparisonChartThreeRow.forEach((chThreeTr, idx3) => {
+        if (idx3 === idx1) {
+          chThreeTr.style.height = chOneTr.clientHeight + "px";
+        }
+      });
+    }
+  });
+};
+
+adjustTablesRowsHeight();
+
+// Restore normal heights on smalll screens and responsive layout
+const restorePreviousHeights = () => {
+  comparisonChartOneRow.forEach((chOneTr) => {
+    chOneTr.style.height = "45px";
+  });
+
+  comparisonChartTwoRow.forEach((chTwoTr) => {
+    chTwoTr.style.height = "45px";
+  });
+
+  comparisonChartThreeRow.forEach((chThreeTr) => {
+    chThreeTr.style.height = "45px";
+  });
+};
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 768) {
+    restorePreviousHeights();
+  } else {
+    adjustTablesRowsHeight();
+  }
 });
