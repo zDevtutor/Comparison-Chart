@@ -51,12 +51,14 @@ const comparisonChartThreeRow = document.querySelectorAll(
 
 const adjustTablesRowsHeight = () => {
   comparisonChartOneRow.forEach((chOneTr, idx1) => {
+    // Title Col
     comparisonChartTwoRow.forEach((chTwoTr, idx2) => {
       if (idx2 === idx1) {
         chTwoTr.style.height = chOneTr.clientHeight + "px";
       }
     });
 
+    // Title $5/month Col
     comparisonChartThreeRow.forEach((chThreeTr, idx3) => {
       if (idx3 === idx1) {
         chThreeTr.style.height = chOneTr.clientHeight + "px";
@@ -66,6 +68,8 @@ const adjustTablesRowsHeight = () => {
 };
 
 adjustTablesRowsHeight();
+
+window.addEventListener("load", adjustTablesRowsHeight);
 
 // Restore normal heights on smalll screens and responsive layout
 const restorePreviousHeights = () => {
@@ -85,7 +89,7 @@ const restorePreviousHeights = () => {
 window.addEventListener("resize", () => {
   if (window.innerWidth < 768) {
     restorePreviousHeights();
-  } else {
+  } else if (window.innerWidth > 768) {
     adjustTablesRowsHeight();
   }
 });
